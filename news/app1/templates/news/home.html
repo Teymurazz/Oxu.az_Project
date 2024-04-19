@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'cakes/main.css' %}">
+    <style>
+        /* Добавленный стиль для навигационной панели */
+        nav {
+            width: 100%;
+            background-color: #f31111;
+            overflow: hidden;
+            display: flex; /* Распределение элементов в строку */
+            justify-content: space-around; /* Равномерное распределение элементов по ширине */
+        }
+        
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        nav ul li {
+            float: left;
+            margin-right: 50px;
+        }
+        
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        nav ul li a:hover {
+            background-color: #ddd;
+            color: rgb(212, 15, 15);
+        }
+    </style>
+ </head>
+<body>
+
+    <h1>Oxu.az</h1>
+    <div class="container" style="display: flex; flex-wrap: wrap;">
+        {% for xeber in xeberler %}
+        <div class="news-item">
+            <a href="{% url 'news_detail' xeber.id %}" style="text-decoration: none;"> 
+            <div class="product-card">
+                <img src="{{ xeber.image_url }}" alt="Product Image">
+                <div class="product-details">
+                    <div class="product-title">{{ xeber.title }}</div>
+                    <div class="product-published_at">${{ xeber.published_at }}</div>
+                    <div>
+                        <button type="button" class="like-btn">Like</button>
+                        <button type="button" class="dislike-btn">Dislike</button>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+                    
+                

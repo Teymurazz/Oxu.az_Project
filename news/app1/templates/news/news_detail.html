@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ news.title }}</title>
+</head>
+<body>
+    <h1>{{ news.title }}</h1>
+    <img src="{{ news.image_url }}" alt="News Image">
+    <p>{{ news.body }}</p>
+    <p>Published at: {{ news.published_at }}</p>
+    <p>Views: {{ news.views_count }}</p>
+    <p>Likes: {{ news.likes_count }}</p>
+    <p>Dislikes: {{ news.dislikes_count }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" name="like">Like</button>
+        <button type="submit" name="dislike">Dislike</button>
+    </form>
+    <!-- Добавьте дополнительную информацию о новости по вашему желанию -->
+   
+</body>
+</html>
